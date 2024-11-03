@@ -12,7 +12,7 @@ predicate Sorted{L}(int* a, integer from, integer to) =
     requires 0 <= low <= high < INT_MAX;
 
     requires \valid_read(arr + (low .. high));
-    requires Sorted(arr, low, high);
+    requires Sorted(arr, 0, high);
 
     assigns \nothing;
     ensures \result >= -1;
@@ -77,7 +77,7 @@ int binarySearch(int arr[], int low, int high, int x)
     requires 0 < n < INT_MAX;
 
     requires \valid_read(A + (0 .. n - 1));
-    requires Sorted(A, 0, n- 1);
+    requires Sorted(A, 0, n - 1);
 
     assigns \nothing;
 
